@@ -5,35 +5,50 @@
 }
 
 <h2>Consignees</h2>
-<table style="width: 250px">
+<table style="width: 600px">
     <thead>
-        <th>@Html.DisplayNameFor(model => model.FirstName)</th>
-        <th>@Html.DisplayNameFor(model => model.LastName)</th>
-        <th>@Html.DisplayNameFor(model => model.AddressOne)</th>
-        <th>@Html.DisplayNameFor(model => model.AddressTwo)</th>
-        <th>@Html.DisplayNameFor(model => model.City)</th>
-        <th>@Html.DisplayNameFor(model => model.State)</th>
-        <th>@Html.DisplayNameFor(model => model.PostalCode)</th>
-        <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
-        <th>@Html.DisplayNameFor(model => model.Email)</th>
-        <th>@Html.DisplayNameFor(model => model.CreationDate)</th>
-        <th>@Html.DisplayNameFor(model => model.UpdatedDate)</th>
-        <th></th>
+        <tr>
+            <th>Consignee</th>
+            <th></th>
+        </tr>
     </thead>
     @foreach (var m in Model)
     {
         <tr>
-            <td>@m.FirstName</td>
-            <td>@m.LastName</td>
-            <td>@m.AddressOne</td>
-            <td>@m.AddressTwo</td>
-            <td>@m.City</td>
-            <td>@m.State</td>
-            <td>@m.PostalCode</td>
-            <td>@m.PhoneNumber</td>
-            <td><a href="mailto:@m.Email">@m.Email</a></td>
-            <td>@m.CreationDate.ToShortDateString()</td>
-            <td>@m.UpdatedDate.ToShortDateString()</td>
+            <td>
+                <div style="border: 1px solid silver"></div>
+                <table>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>@m.FirstName&nbsp;@m.LastName</td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>@m.AddressOne<br />@m.AddressTwo<br/>@m.City, @m.State&nbsp;&nbsp;@m.PostalCode</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>Phone</td>
+                                    <td>@m.PhoneNumber</td>
+                                    <td>Email</td>
+                                    <td><a href="mailto:@m.Email">@m.Email</a></td>
+                                    <td>Percentage</td>
+                                    <td>Created</td>
+                                    <td>@m.CreationDate.ToShortDateString()</td>
+                                    <td>Updated</td>
+                                    <td>@m.UpdatedDate.ToShortDateString()</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
             <td>@Html.ActionLink("Edit", "Edit", new { itemTypeId = m.ConsigneeId })</td>
         </tr>   
     }
