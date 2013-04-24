@@ -339,6 +339,8 @@
     <Content Include="Views\ItemTypes\Create.cshtml" />
     <Content Include="Views\ItemTypes\Edit.cshtml" />
     <Content Include="Views\Consignees\Index.cshtml" />
+    <Content Include="Views\Consignees\Create.cshtml" />
+    <Content Include="Views\Consignees\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

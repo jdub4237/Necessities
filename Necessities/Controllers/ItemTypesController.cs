@@ -6,7 +6,7 @@ using Necessities.Models;
 
 namespace Necessities.Controllers
 {
-    [System.Web.Http.Authorize]
+    [Authorize]
     public class ItemTypesController : Controller
     {
         public ActionResult Index()

@@ -7,7 +7,7 @@ using Necessities.Models;
 
 namespace Necessities.Controllers
 {
-    [System.Web.Http.Authorize]
+    [Authorize]
     public class ConsigneesController : Controller
     {
         public ActionResult Index()
