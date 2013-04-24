@@ -31,6 +31,12 @@
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <li>@Html.ActionLink("Consignees", "Index", "Consignees")</li>
+                                <li>@Html.ActionLink("Item Types", "Index", "ItemTypes")</li>
+                                <li>@Html.ActionLink("Sales Tax Rates", "Index", "SalesTaxRates")</li>
+                            }
                         </ul>
                     </nav>
                 </div>
