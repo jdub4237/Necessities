@@ -1,0 +1,18 @@
+﻿@model Necessities.Models.ItemTypeModel
+
+@{
+    ViewBag.Title = "Item Types - Create";
+}
+
+<h2>Item Types - Create</h2>
+<form action="@Url.Action("Create")" method="POST">
+    <table>
+        <thead>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+        </thead>
+        <tr>
+            <td>@Html.TextBoxFor(model => model.Description)</td>
+        </tr>   
+    </table>
+    <input type="submit" value="Add new" />
+</form>

@@ -1,0 +1,52 @@
+﻿@model Necessities.Models.ConsigneeModel
+
+@{
+    ViewBag.Title = "Consignees - Create";
+}
+
+<h2>Consignee - Create</h2>
+<form action="@Url.Action("Create")" method="POST">
+    <table style="width: 250px">
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.FirstName)</td>
+            <td>@Html.TextBoxFor(model => model.FirstName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.LastName)</td>
+            <td>@Html.TextBoxFor(model => model.LastName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.AddressOne)</td>
+            <td>@Html.TextBoxFor(model => model.AddressOne)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.AddressTwo)</td>
+            <td>@Html.TextBoxFor(model => model.AddressTwo)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.City)</td>
+            <td>@Html.TextBoxFor(model => model.City)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.State)</td>
+            <td>@Html.TextBoxFor(model => model.State)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.PostalCode)</td>
+            <td>@Html.TextBoxFor(model => model.PostalCode)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.PhoneNumber)</td>
+            <td>@Html.TextBoxFor(model => model.PhoneNumber)</td>
+        </tr>   
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Email)</td>
+            <td>@Html.TextBoxFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Percentage)</td>
+            <td>@Html.TextBox("Percentage", ((decimal)Model.Percentage).ToString("#0.000")) %</td>
+        </tr>
+    </table>
+    <input type="submit" value="Add new" />
+</form>

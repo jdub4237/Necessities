@@ -1,0 +1,41 @@
+﻿@model System.Collections.Generic.IEnumerable<Necessities.Models.ConsigneeModel>
+
+@{
+    ViewBag.Title = "Consignees";
+}
+
+<h2>Consignees</h2>
+<table style="width: 250px">
+    <thead>
+        <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+        <th>@Html.DisplayNameFor(model => model.LastName)</th>
+        <th>@Html.DisplayNameFor(model => model.AddressOne)</th>
+        <th>@Html.DisplayNameFor(model => model.AddressTwo)</th>
+        <th>@Html.DisplayNameFor(model => model.City)</th>
+        <th>@Html.DisplayNameFor(model => model.State)</th>
+        <th>@Html.DisplayNameFor(model => model.PostalCode)</th>
+        <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+        <th>@Html.DisplayNameFor(model => model.Email)</th>
+        <th>@Html.DisplayNameFor(model => model.CreationDate)</th>
+        <th>@Html.DisplayNameFor(model => model.UpdatedDate)</th>
+        <th></th>
+    </thead>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.FirstName</td>
+            <td>@m.LastName</td>
+            <td>@m.AddressOne</td>
+            <td>@m.AddressTwo</td>
+            <td>@m.City</td>
+            <td>@m.State</td>
+            <td>@m.PostalCode</td>
+            <td>@m.PhoneNumber</td>
+            <td><a href="mailto:@m.Email">@m.Email</a></td>
+            <td>@m.CreationDate.ToShortDateString()</td>
+            <td>@m.UpdatedDate.ToShortDateString()</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { itemTypeId = m.ConsigneeId })</td>
+        </tr>   
+    }
+</table>
+@Html.ActionLink("Add new...", "Create")

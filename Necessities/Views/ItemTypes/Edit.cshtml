@@ -1,0 +1,21 @@
+﻿@model Necessities.Data.ItemType
+
+@{
+    ViewBag.Title = "Item Types - Edit";
+}
+
+<h2>Item Types - Edit</h2>
+<form action="@Url.Action("Edit")" method="POST">
+    <table>
+        <thead>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.Active)</th>
+        </thead>
+        <tr>
+            <td>@Html.HiddenFor(model => model.ItemTypeId)
+                @Html.TextBoxFor(model => model.Description)</td>
+            <td>@Html.CheckBoxFor(model => model.Active)</td>
+        </tr>   
+    </table>
+    <input type="submit" value="Update" />
+</form>

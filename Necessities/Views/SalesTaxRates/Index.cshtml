@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Necessities.Models.SalesTaxRateModel>
+
+@{
+    ViewBag.Title = "Sales Tax Rates";
+}
+
+<h2>Sales Tax Rates</h2>
+<table style="width: 250px">
+    <thead>
+        <th>@Html.DisplayNameFor(model => model.StartDate)</th>
+        <th>@Html.DisplayNameFor(model => model.TaxRate)</th>
+    </thead>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.StartDate.ToShortDateString()</td>
+            <td>@m.TaxRate</td>
+        </tr>   
+    }
+</table>
+@Html.ActionLink("Add new...", "Create")
+

@@ -1,0 +1,24 @@
+﻿@model System.Collections.Generic.IEnumerable<Necessities.Models.ItemTypeModel>
+
+@{
+    ViewBag.Title = "Item Types";
+}
+
+<h2>Item Types</h2>
+<table style="width: 250px">
+    <thead>
+        <th>@Html.DisplayNameFor(model => model.Description)</th>
+        <th>@Html.DisplayNameFor(model => model.Active)</th>
+        <th></th>
+    </thead>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.Description</td>
+            <td>@Html.CheckBox("Active_" + @m.ItemTypeId, @m.Active, new { disabled = "disabled" })</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { itemTypeId = m.ItemTypeId })</td>
+        </tr>   
+    }
+</table>
+@Html.ActionLink("Add new...", "Create")
+

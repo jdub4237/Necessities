@@ -1,0 +1,23 @@
+﻿@model Necessities.Models.SalesTaxRateModel
+
+@{
+    ViewBag.Title = "Sales Tax Rates - Create";
+}
+
+<h2>Sales Tax Rates - Create</h2>
+<form action="@Url.Action("Create")" method="POST">
+    <table>
+        <thead>
+            <th>@Html.DisplayNameFor(model => model.StartDate)</th>
+            <th>@Html.DisplayNameFor(model => model.TaxRate)</th>
+        </thead>
+        <tr>
+            <td>@Html.TextBox("StartDate", Model.StartDate.ToString("MM/dd/yyyy"), new { @class = "date" })</td>
+            <td>@Html.TextBox("TaxRate", ((decimal)Model.TaxRate).ToString("#0.000")) %</td>
+        </tr>   
+    </table>
+    <input type="submit" value="Add new" />
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () { $('.date').datepicker({ dateFormat: "mm/dd/yy" }); });
+    </script>
+</form>
