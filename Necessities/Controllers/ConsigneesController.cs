@@ -38,7 +38,12 @@ namespace Necessities.Controllers
 
         public ActionResult Create()
         {
-            return View(new ConsigneeModel());
+            return View(new ConsigneeModel
+                            {
+                                Percentage = 0.00m,
+                                CreationDate = DateTime.Now,
+                                UpdatedDate = DateTime.Now
+                            });
         }
 
         [HttpPost]
