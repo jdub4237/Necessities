@@ -198,6 +198,7 @@
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\SalesTaxRateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitedStatesStates.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\animated-overlay.gif" />

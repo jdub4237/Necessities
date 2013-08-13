@@ -1,4 +1,5 @@
-﻿@model Necessities.Models.ConsigneeModel
+﻿@using Necessities
+@model Necessities.Models.ConsigneeModel
 
 @{
     ViewBag.Title = "Consignees - Create";
@@ -29,7 +30,7 @@
         </tr>
         <tr>
             <td>@Html.DisplayNameFor(model => model.State)</td>
-            <td>@Html.TextBoxFor(model => model.State)</td>
+            <td>@Html.DropDownListFor(model => model.State, UnitedStatesStates.StateSelectList)</td>
         </tr>
         <tr>
             <td>@Html.DisplayNameFor(model => model.PostalCode)</td>

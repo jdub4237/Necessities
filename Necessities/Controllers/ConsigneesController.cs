@@ -40,7 +40,8 @@ namespace Necessities.Controllers
         {
             return View(new ConsigneeModel
                             {
-                                Percentage = 0.00m,
+                                State = "MO",
+                                Percentage = 40.00m,
                                 CreationDate = DateTime.Now,
                                 UpdatedDate = DateTime.Now
                             });
@@ -49,30 +50,35 @@ namespace Necessities.Controllers
         [HttpPost]
         public ActionResult Create(ConsigneeModel consigneeModel)
         {
-            using (var necessitiesContext = new NecessitiesContext())
+            if (ModelState.IsValid)
             {
-                necessitiesContext.Consignees.Add(
-                    new Consignee
-                    {
-                        ConsigneeId = consigneeModel.ConsigneeId,
-                        FirstName = consigneeModel.FirstName,
-                        LastName = consigneeModel.LastName,
-                        AddressOne = consigneeModel.AddressOne,
-                        AddressTwo = consigneeModel.AddressTwo,
-                        City = consigneeModel.City,
-                        State = consigneeModel.State,
-                        PostalCode = consigneeModel.PostalCode,
-                        PhoneNumber = consigneeModel.PhoneNumber,
-                        Email = consigneeModel.Email,
-                        Percentage = consigneeModel.Percentage,
-                        CreationDate = DateTime.Now,
-                        UpdatedDate = DateTime.Now
-                    });
+                using (var necessitiesContext = new NecessitiesContext())
+                {
+                    necessitiesContext.Consignees.Add(
+                        new Consignee
+                            {
+                                ConsigneeId = consigneeModel.ConsigneeId,
+                                FirstName = consigneeModel.FirstName,
+                                LastName = consigneeModel.LastName,
+                                AddressOne = consigneeModel.AddressOne,
+                                AddressTwo = consigneeModel.AddressTwo,
+                                City = consigneeModel.City,
+                                State = consigneeModel.State,
+                                PostalCode = consigneeModel.PostalCode,
+                                PhoneNumber = consigneeModel.PhoneNumber,
+                                Email = consigneeModel.Email,
+                                Percentage = consigneeModel.Percentage / 100,
+                                CreationDate = DateTime.Now,
+                                UpdatedDate = DateTime.Now
+                            });
 
-                necessitiesContext.SaveChanges();
+                    necessitiesContext.SaveChanges();
+                }
+
+                return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index");
+            return View(consigneeModel);
         }
 
         public ActionResult Edit(int consigneeId)
@@ -92,7 +98,7 @@ namespace Necessities.Controllers
                                          Email = consignee.Email,
                                          FirstName = consignee.FirstName,
                                          LastName = consignee.LastName,
-                                         Percentage = consignee.Percentage,
+                                         Percentage = consignee.Percentage * 100,
                                          PhoneNumber = consignee.PhoneNumber,
                                          PostalCode = consignee.PostalCode,
                                          State = consignee.State,
@@ -106,28 +112,32 @@ namespace Necessities.Controllers
         [HttpPost]
         public ActionResult Edit(ConsigneeModel consigneeModel)
         {
-            using (var necessitiesContext = new NecessitiesContext())
+            if (ModelState.IsValid)
             {
-                var consignee = necessitiesContext.Consignees.First(x => x.ConsigneeId == consigneeModel.ConsigneeId);
+                using (var necessitiesContext = new NecessitiesContext())
+                {
+                    var consignee = necessitiesContext.Consignees.First(x => x.ConsigneeId == consigneeModel.ConsigneeId);
 
-                consignee.ConsigneeId = consigneeModel.ConsigneeId;
-                consignee.FirstName = consigneeModel.FirstName;
-                consignee.LastName = consigneeModel.LastName;
-                consignee.AddressOne = consigneeModel.AddressOne;
-                consignee.AddressTwo = consigneeModel.AddressTwo;
-                consignee.City = consigneeModel.City;
-                consignee.State = consigneeModel.State;
-                consignee.PostalCode = consigneeModel.PostalCode;
-                consignee.PhoneNumber = consigneeModel.PhoneNumber;
-                consignee.Email = consigneeModel.Email;
-                consignee.Percentage = consigneeModel.Percentage;
-                consignee.CreationDate = consigneeModel.CreationDate;
-                consignee.UpdatedDate = DateTime.Now;
+                    consignee.ConsigneeId = consigneeModel.ConsigneeId;
+                    consignee.FirstName = consigneeModel.FirstName;
+                    consignee.LastName = consigneeModel.LastName;
+                    consignee.AddressOne = consigneeModel.AddressOne;
+                    consignee.AddressTwo = consigneeModel.AddressTwo;
+                    consignee.City = consigneeModel.City;
+                    consignee.State = consigneeModel.State;
+                    consignee.PostalCode = consigneeModel.PostalCode;
+                    consignee.PhoneNumber = consigneeModel.PhoneNumber;
+                    consignee.Email = consigneeModel.Email;
+                    consignee.Percentage = consigneeModel.Percentage / 100;
+                    consignee.UpdatedDate = DateTime.Now;
 
-                necessitiesContext.SaveChanges();
+                    necessitiesContext.SaveChanges();
+                }
+
+                return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index");
+            return View(consigneeModel);
         }
     }
 }

@@ -22,12 +22,7 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td>Name</td>
-                                    <td>@m.FirstName&nbsp;@m.LastName</td>
-                                </tr>
-                                <tr>
-                                    <td>Address</td>
-                                    <td>@m.AddressOne<br />@m.AddressTwo<br/>@m.City, @m.State&nbsp;&nbsp;@m.PostalCode</td>
+                                    <td>@m.FirstName&nbsp;@m.LastName<br />@m.AddressOne<br />@m.AddressTwo<br/>@m.City, @m.State&nbsp;&nbsp;@m.PostalCode</td>
                                 </tr>
                             </table>
                         </td>
@@ -36,11 +31,20 @@
                                 <tr>
                                     <td>Phone</td>
                                     <td>@m.PhoneNumber</td>
+                                </tr>
+                                <tr>
                                     <td>Email</td>
                                     <td><a href="mailto:@m.Email">@m.Email</a></td>
+                                </tr>
+                                <tr>
                                     <td>Percentage</td>
+                                    <td>@m.Percentage.ToString("P")</td>
+                                </tr>
+                                <tr>
                                     <td>Created</td>
                                     <td>@m.CreationDate.ToShortDateString()</td>
+                                </tr>
+                                <tr>
                                     <td>Updated</td>
                                     <td>@m.UpdatedDate.ToShortDateString()</td>
                                 </tr>
@@ -49,7 +53,7 @@
                     </tr>
                 </table>
             </td>
-            <td>@Html.ActionLink("Edit", "Edit", new { itemTypeId = m.ConsigneeId })</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { consigneeId = m.ConsigneeId })</td>
         </tr>   
     }
 </table>
