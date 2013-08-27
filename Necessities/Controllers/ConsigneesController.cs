@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
 using Necessities.Data;
 using Necessities.Models;
@@ -65,9 +66,9 @@ namespace Necessities.Controllers
                                 City = consigneeModel.City,
                                 State = consigneeModel.State,
                                 PostalCode = consigneeModel.PostalCode,
-                                PhoneNumber = consigneeModel.PhoneNumber,
+                                PhoneNumber = GetCleanPhoneNumber(consigneeModel.PhoneNumber),
                                 Email = consigneeModel.Email,
-                                Percentage = consigneeModel.Percentage / 100,
+                                Percentage = consigneeModel.Percentage/100,
                                 CreationDate = DateTime.Now,
                                 UpdatedDate = DateTime.Now
                             });
@@ -79,6 +80,11 @@ namespace Necessities.Controllers
             }
 
             return View(consigneeModel);
+        }
+
+        private static string GetCleanPhoneNumber(string phoneNumber)
+        {
+            return Regex.Replace(phoneNumber, "[^0-9]", string.Empty);
         }
 
         public ActionResult Edit(int consigneeId)
@@ -126,7 +132,7 @@ namespace Necessities.Controllers
                     consignee.City = consigneeModel.City;
                     consignee.State = consigneeModel.State;
                     consignee.PostalCode = consigneeModel.PostalCode;
-                    consignee.PhoneNumber = consigneeModel.PhoneNumber;
+                    consignee.PhoneNumber = GetCleanPhoneNumber(consigneeModel.PhoneNumber);
                     consignee.Email = consigneeModel.Email;
                     consignee.Percentage = consigneeModel.Percentage / 100;
                     consignee.UpdatedDate = DateTime.Now;

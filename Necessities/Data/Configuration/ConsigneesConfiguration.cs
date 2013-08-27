@@ -10,7 +10,7 @@ namespace Necessities.Data.Configuration
             ToTable("dbo.Consignees");
             HasKey(x => x.ConsigneeId);
 
-            Property(x => x.ConsigneeId).HasColumnName("ConsigneeId").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            Property(x => x.ConsigneeId).HasColumnName("ConsigneeId").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.FirstName).HasColumnName("FirstName").IsRequired().HasMaxLength(15);
             Property(x => x.LastName).HasColumnName("LastName").IsRequired().HasMaxLength(15);
             Property(x => x.AddressOne).HasColumnName("AddressOne").HasMaxLength(50);
