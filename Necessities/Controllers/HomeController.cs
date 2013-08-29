@@ -6,21 +6,21 @@ namespace Necessities.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            ViewBag.Message = "Welcome to NecessitiesThriftShop.com!";
 
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewBag.Message = "25 years in business.  Gently used clothing, and many more one of a kind items.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Located near the corner of 7 highway and Walnut in Blue Springs, MO.  We are in a large salmon colored house with convenient drive around parking.";
 
             return View();
         }

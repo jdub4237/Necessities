@@ -36,7 +36,7 @@ namespace Necessities.Controllers
                                                                             SaleId = item.SaleId,
                                                                             CreationDate = item.CreationDate,
                                                                             UpdatedDate = item.UpdatedDate
-                                                                        })
+                                                                        }).ToList()
                                                         }).ToList();
             }
             return View(saleModels);
