@@ -12,11 +12,11 @@ namespace Necessities.Data
         public DateTime UpdatedDate { get; set; } // UpdatedDate
 
         // Reverse navigation
-        public ICollection<SalesItem> SalesItems { get; set; } // SalesItem.FK_Sales_SalesItems_SaleId;
+        public ICollection<SaleItem> SaleItems { get; set; } // SaleItem.FK_Sales_SaleItems_SaleId;
 
         public Sale()
         {
-            SalesItems = new List<SalesItem>();
+            SaleItems = new List<SaleItem>();
         }
     }
 }

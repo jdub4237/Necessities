@@ -21,12 +21,12 @@ namespace Necessities.Data
 
         // Reverse navigation
         public ICollection<ConsigeePayment> ConsigeePayments { get; set; } // ConsigeePayment.FK_Consignees_ConsigneePayments_ConsigneeId;
-        public ICollection<SalesItem> SalesItems { get; set; } // SalesItem.FK_Consignees_SaleItems_CosnigneeId;
+        public ICollection<SaleItem> SaleItems { get; set; } // SaleItem.FK_Consignees_SaleItems_CosnigneeId;
 
         public Consignee()
         {
             ConsigeePayments = new List<ConsigeePayment>();
-            SalesItems = new List<SalesItem>();
+            SaleItems = new List<SaleItem>();
         }
     }
 }

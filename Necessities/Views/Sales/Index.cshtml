@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Necessities.Models.SaleModel>
+
+@{
+    ViewBag.Title = "Sales";
+}
+
+<h2>Sales</h2>
+<table style="width: 600px">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Tax</th>
+            <th>Sub Total</th>
+            <th>Total</th>
+            <th>Created</th>
+            <th>Updated</th>
+        </tr>
+    </thead>
+    @foreach (var m in Model)
+    {
+        var subTotal = m.SaleItems.Sum(model => model.Amount);
+        var tax = m.TaxRate*subTotal;
+        var total = subTotal + tax;
+        
+        @Html.Hidden("SaleId", m.SaleId)
+        <tr>
+            <td>
+                @m.Date.ToShortDateString()
+            </td>
+            <td>
+                @tax.ToString("C")
+            </td>
+            <td>
+                @subTotal.ToString("C")
+            </td>
+            <td>
+                @total.ToString("C")
+            </td>
+            <td>
+                @m.CreationDate.ToShortDateString() @m.CreationDate.ToShortTimeString()
+            </td>
+            <td>
+                @m.UpdatedDate.ToShortDateString() @m.UpdatedDate.ToShortTimeString()
+            </td>
+        </tr>   
+    }
+</table>
+@Html.ActionLink("Add new...", "Create")

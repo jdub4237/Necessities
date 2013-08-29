@@ -9,12 +9,12 @@ namespace Necessities.Data
         public bool Active { get; set; } // Active
 
         // Reverse navigation
-        public ICollection<SalesItem> SalesItems { get; set; } // SalesItem.FK_ItemTypes_SalesItems_ItemTypeId;
+        public ICollection<SaleItem> SaleItems { get; set; } // SaleItem.FK_ItemTypes_SaleItems_ItemTypeId;
 
         public ItemType()
         {
             Active = true;
-            SalesItems = new List<SalesItem>();
+            SaleItems = new List<SaleItem>();
         }
     }
 }

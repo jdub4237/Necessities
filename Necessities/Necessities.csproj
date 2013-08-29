@@ -164,22 +164,23 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ConsigneesController.cs" />
     <Compile Include="Controllers\ItemTypesController.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\SalesTaxRatesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\Configuration\ConsigeePaymentsConfiguration.cs" />
-    <Compile Include="Data\Configuration\ConsigneePaymentSalesItemsConfiguration.cs" />
+    <Compile Include="Data\Configuration\ConsigneePaymentSaleItemsConfiguration.cs" />
     <Compile Include="Data\Configuration\ConsigneesConfiguration.cs" />
     <Compile Include="Data\Configuration\ItemTypesConfiguration.cs" />
     <Compile Include="Data\Configuration\SalesConfiguration.cs" />
-    <Compile Include="Data\Configuration\SalesItemsConfiguration.cs" />
+    <Compile Include="Data\Configuration\SaleItemsConfiguration.cs" />
     <Compile Include="Data\Configuration\SalesTaxRatesConfiguration.cs" />
     <Compile Include="Data\ConsigeePayment.cs" />
-    <Compile Include="Data\ConsigneePaymentSalesItem.cs" />
+    <Compile Include="Data\ConsigneePaymentSaleItem.cs" />
     <Compile Include="Data\Consignee.cs" />
     <Compile Include="Data\ItemType.cs" />
     <Compile Include="Data\NecessitiesContext.cs" />
     <Compile Include="Data\Sale.cs" />
-    <Compile Include="Data\SalesItem.cs" />
+    <Compile Include="Data\SaleItem.cs" />
     <Compile Include="Data\SalesTaxRate.cs" />
     <Compile Include="Data\UserProfile.cs" />
     <Compile Include="Data\UsersContext.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="Models\Percentage.cs" />
     <Compile Include="Models\RegisterExternalLoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\SaleModel.cs" />
     <Compile Include="Models\SalesTaxRateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitedStatesStates.cs" />
@@ -342,6 +344,8 @@
     <Content Include="Views\Consignees\Index.cshtml" />
     <Content Include="Views\Consignees\Create.cshtml" />
     <Content Include="Views\Consignees\Edit.cshtml" />
+    <Content Include="Views\Sales\Index.cshtml" />
+    <Content Include="Views\Sales\Create.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

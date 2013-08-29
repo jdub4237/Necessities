@@ -13,14 +13,14 @@ namespace Necessities.Data
         public DateTime UpdatedDate { get; set; } // UpdatedDate
 
         // Reverse navigation
-        public ICollection<ConsigneePaymentSalesItem> ConsigneePaymentSalesItems { get; set; } // ConsigneePaymentSalesItem.FK_ConsigneePayments_ConsigneePaymentSalesItems_ConsigneePaymentId;
+        public ICollection<ConsigneePaymentSaleItem> ConsigneePaymentSaleItems { get; set; } // ConsigneePaymentSaleItem.FK_ConsigneePayments_ConsigneePaymentSaleItems_ConsigneePaymentId;
 
         // Foreign keys
         public Consignee Consignee { get; set; } //  ConsigneeId - FK_Consignees_ConsigneePayments_ConsigneeId
 
         public ConsigeePayment()
         {
-            ConsigneePaymentSalesItems = new List<ConsigneePaymentSalesItem>();
+            ConsigneePaymentSaleItems = new List<ConsigneePaymentSaleItem>();
         }
     }
 }
