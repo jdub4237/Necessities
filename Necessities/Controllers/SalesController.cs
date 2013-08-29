@@ -62,7 +62,7 @@ namespace Necessities.Controllers
                     TaxRate = taxRate,
                     CreationDate = DateTime.Now,
                     UpdatedDate = DateTime.Now,
-                    SaleItems = new SaleItemModel[0]
+                    SaleItems = new List<SaleItemModel>()
                 });
         }
 

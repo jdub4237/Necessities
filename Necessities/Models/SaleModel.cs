@@ -15,7 +15,7 @@ namespace Necessities.Models
 
         public DateTime UpdatedDate { get; set; }
 
-        public IEnumerable<SaleItemModel> SaleItems { get; set; }
+        public List<SaleItemModel> SaleItems { get; set; }
     }
 
     public class SaleItemModel
